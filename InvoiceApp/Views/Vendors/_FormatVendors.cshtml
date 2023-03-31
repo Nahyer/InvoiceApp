@@ -1,0 +1,72 @@
+﻿@using InvoiceApp.Entities;
+@model VendorsViewModel 
+
+  
+        <div class="col-md-3 mb-3">
+                <label  asp-for="ActiveVendor.Name">Name: </label>
+                <input asp-for="ActiveVendor.Name" type="text" class="form-control" id="nameInput" placeholder="Name" >
+                    <span class="error-message" ></span>
+                   
+            
+        </div>
+
+        <div class="col-md-3 mb-3">
+                <label asp-for="ActiveVendor.Address1" >Address 1</label>
+                <input type="text" asp-for="ActiveVendor.Address1"  class="form-control" id="address1" placeholder="Last name" >
+                    <span class="error-message"></span>
+            
+        </div>
+
+        <div class="col-md-3 mb-3">
+              <label asp-for="ActiveVendor.Address2" >Address 2:</label>
+                  <input asp-for="ActiveVendor.Address2" type="text" class="form-control" id="address2"  aria-describedby="inputGroupPrepend" >
+                  <span class="error-message"></span>
+ 
+        </div>
+        
+        <div class="col-md-3 mb-3">
+                <label asp-for="ActiveVendor.City" >City</label>
+                    <input type="text" asp-for="ActiveVendor.City" class="form-control" id="city" placeholder="City" >
+			<div class="invalid-feedback">
+				Please enter your city.
+			</div>
+        </div>
+            
+         <div class="col-md-3 mb-3">
+                <label asp-for="ActiveVendor.ProvinceOrState" >Provice or State</label>
+                    <input type="text" asp-for="ActiveVendor.ProvinceOrState" class="form-control" id="province" placeholder="State" >
+                        <span class="error-message"></span>
+			<div class="invalid-feedback">
+				Please provide a valid state.
+			</div>
+          </div>
+          
+          <div class="col-md-3 mb-3">
+                 <label asp-for="ActiveVendor.ZipOrPostalCode" >Zip or Postal Code</label>
+                         <input type="text" asp-for="ActiveVendor.ZipOrPostalCode" class="form-control" placeholder="Zip" id="postal-code"  >
+                             <span class="error-message"></span>
+		  </div>
+		  
+		  <div class="col-md-3 mb-3">
+                    <label asp-for="ActiveVendor.VendorPhone" >Phone</label>
+                        <input type="tel" asp-for="ActiveVendor.VendorPhone" class="form-control"  id="phone" placeholder="000-000-0000" required pattern="\d{3}-\d{3}-\d{4}">
+                 <div id="notification"><span class="error-message"></span></div>
+                </div>
+          
+          <div class="col-md-3 mb-3">
+				<label asp-for="ActiveVendor.VendorContactFirstName" >First Name</label>
+				<input type="text" asp-for="ActiveVendor.VendorContactFirstName" class="form-control" placeholder="First Name" >
+              <span class="error-message"></span>
+                </div>
+
+               <div class="col-md-3 mb-3">
+                    <label asp-for="ActiveVendor.VendorContactLastName" >Last Name</label>
+                    <input type="text" asp-for="ActiveVendor.VendorContactLastName" class="form-control"  placeholder="Last Name" >
+                     <span class="error-message"></span>
+                    </div>
+
+              <div class="col-md-3 mb-3">
+                    <label asp-for="ActiveVendor.VendorContactEmail" for="validationCustom03">Email</label>
+                     <input  asp-for="ActiveVendor.VendorContactEmail" class="form-control" placeholder="Email" id="email" >
+                        <span class="error-message"></span>
+               </div>

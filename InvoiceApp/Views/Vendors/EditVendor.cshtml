@@ -1,0 +1,15 @@
+﻿@model VendorsViewModel
+
+@{
+	ViewData["Title"] = "Edit Vendor";
+}
+
+<form method="post" asp-controller="vendors" asp-action="EditVendor">
+
+	<h1>Edit Vendor</h1>
+
+	@await Html.PartialAsync("_FormatVendors", Model)
+	<input type="hidden" asp-for="ActiveVendor.VendorId" value="@Model.ActiveVendor.VendorId" />
+	<button type="submit" class="btn btn-primary">Edit</button>
+	<a asp-controller="Vendors" asp-action="GetAllVendors" class="btn btn-primary">Cancel</a>
+</form>

@@ -1,0 +1,48 @@
+﻿@using InvoiceApp.Entities;
+
+@model List<Vendor>
+    
+    <div class="container-1">
+    <div><p><a asp-controller="Vendors" asp-action="GetNewVendor">Add new Vendor</a></p></div>
+     <div id="notification">
+         @if (TempData.ContainsKey("LastActionMessage"))
+        {
+                        <div class="col-md-12 mb-1" >
+                            <div class="alert alert-warning">
+                                    <form method="post" asp-controller="Vendors" asp-action="Undodelete" asp-route-id="@ViewBag.Id">
+                        @TempData["LastActionMessage"]
+                                <input type="submit" class="btn btn-link" value="Undo this delete?" />
+                                 </form>  
+                            </div>      
+                    </div>
+        }
+        </div>
+    </div>
+  
+    
+
+    <div>
+     <ul class="nav nav-tabs">
+        <li class="nav-item active"><a class="nav-link active" href="#A-E" data-toggle="tab">A-E</a></li>
+        <li class="nav-item"><a class="nav-link" href="#F-K" data-toggle="tab">F-K</a></li>
+        <li class="nav-item"><a class="nav-link" href="#L-R" data-toggle="tab">L-R</a></li>
+        <li class="nav-item"><a class="nav-link" href="#S-Z" data-toggle="tab">S-Z</a></li>
+    </ul>
+    </div>
+
+    <div class="tab-content">
+         <div class="tab-pane active" id="A-E">
+            @await Html.PartialAsync("_Vendors", Model.Where(v => v.Name.StartsWith("A") || v.Name.StartsWith("B") || v.Name.StartsWith("C") || v.Name.StartsWith("D") || v.Name.StartsWith("E")).ToList())
+         </div>
+        <div class="tab-pane " id="F-K">
+            @await Html.PartialAsync("_Vendors",Model.Where(v => v.Name.StartsWith("F") || v.Name.StartsWith("G") || v.Name.StartsWith("H") || v.Name.StartsWith("I") || v.Name.StartsWith("J") || v.Name.StartsWith("K")).ToList())
+        </div>
+        <div class="tab-pane " id="L-R">
+            @await Html.PartialAsync("_Vendors",Model.Where(v => v.Name.StartsWith("L") || v.Name.StartsWith("M") || v.Name.StartsWith("N") || v.Name.StartsWith("O") || v.Name.StartsWith("P") || v.Name.StartsWith("Q") || v.Name.StartsWith("R")).ToList())
+        </div>
+        <div class="tab-pane " id="S-Z">
+            @await Html.PartialAsync("_Vendors", Model.Where(v => v.Name.StartsWith("S") || v.Name.StartsWith("T") || v.Name.StartsWith("U") || v.Name.StartsWith("V") || v.Name.StartsWith("W") || v.Name.StartsWith("X") || v.Name.StartsWith("Y") || v.Name.StartsWith("Z")).ToList())
+        </div>
+    </div>
+
+

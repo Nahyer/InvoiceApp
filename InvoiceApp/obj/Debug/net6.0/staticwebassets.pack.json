@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\InvoiceApp.bundle.scp.css",
+      "PackagePath": "staticwebassets\\InvoiceApp.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\REYHAN\\C# PROJECTS\\Project 2\\InvoiceApp\\InvoiceApp\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.InvoiceApp.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.InvoiceApp.props",
+      "PackagePath": "build\\InvoiceApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.InvoiceApp.props",
+      "PackagePath": "buildMultiTargeting\\InvoiceApp.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.InvoiceApp.props",
+      "PackagePath": "buildTransitive\\InvoiceApp.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

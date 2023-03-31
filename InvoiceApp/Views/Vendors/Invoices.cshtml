@@ -1,0 +1,138 @@
+﻿@using System.Globalization;
+@model InvoiceViewModel
+
+@{
+<div class="container-1">
+	<div>
+		<h1>Invoices for @Model.ActiveVendor.Name </h1>
+		<p>@Model.ActiveVendor.Address1</p>
+	</div>
+	<div>
+			<a asp-controller="Vendors" asp-action="GetAllVendors" >Return to A-E Vendors</a>
+			@if(Model.ActiveTerm != null)
+			{
+						<p>Terms: @Model.ActiveTerm.DueDays Days</p>
+			}
+			
+
+	</div>
+</div>
+<div class="container-1">
+  <div>
+		<table class="table" id="invoices-table">
+	<caption class="caption-top">Invoices</caption>
+			<thead>
+				<tr>
+					<th>Invoice #</th>
+					<th>Due Date</th>
+					<th>Amount Paid</th>
+				</tr>
+			</thead>
+			<tbody>
+					@if(Model.Invoices != null)
+					{
+						@foreach (var invoice in Model.Invoices)
+						{
+							if (invoice.InvoiceId == ViewBag.invoid)
+							{
+											<tr class="table-primary">
+														<td><a asp-action="GetVendorInvoice1" 
+							asp-controller="Vendors" asp-route-param1="@Model.ActiveVendor.VendorId"
+							asp-route-param2="@invoice.InvoiceId">@invoice.InvoiceId</a></td>
+														<td>@invoice.InvoiceDueDate</td>
+														<td>@invoice.PaymentTotal</td>
+											</tr>
+							}
+							else
+							{
+											<tr>
+												<td><a asp-action="GetVendorInvoice1" 
+					 				asp-controller="Vendors" asp-route-param1="@Model.ActiveVendor.VendorId"
+									asp-route-param2="@invoice.InvoiceId">@invoice.InvoiceId</a></td>
+												  <td>@invoice.InvoiceDueDate</td>
+												  <td>@invoice.PaymentTotal</td>
+											</tr>
+							}
+						}
+					}
+					
+			</tbody>
+				
+	</table>
+			<form method="post" asp-controller="vendors" asp-action="AddInvoice" 
+			asp-route-id="@Model.ActiveVendor.VendorId">
+				<div class="col-md-3 mb-3">
+						<label asp-for="ActiveInvoice.InvoiceDate" >Date:</label>
+											<input  type="date" id="invoice-date-input" name="InvoDate"
+												value="" required>
+
+				 </div>
+			<div class="col-md-3 mb-3">
+						  <label asp-for="ActiveInvoice.PaymentTermsId" >Terms: </label>
+						<select asp-for="ActiveInvoice.PaymentTermsId">
+						<option value="">Select payment terms...</option>
+					    @foreach(var term in Model.PaymentTerms)
+					    {
+							<option  value="@term.PaymentTermsId" >@term.Description</option>
+					    }
+					</select>
+							<input type="hidden" asp-for="ActiveInvoice.VendorId" value="@Model.ActiveVendor.VendorId">
+			  </div>
+			<div>
+				<input type="submit" class="btn btn-primary" value="Add Invoice">
+			</div>
+		</form>
+
+   </div>
+
+  <div>
+				<table class="table">
+						<caption class="caption-top">Line items for Invoices# @if (Model.ActiveInvoice != null){ @Model.ActiveInvoice.InvoiceId }</caption>
+					  <thead>
+						<tr>
+							<th>Description</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+					@if (Model.InvoiceLineItems != null)
+					{
+						@foreach (var line in Model.InvoiceLineItems)
+						{
+										<tr>
+											<td>@line.Description</td>
+											<td>@line.Amount</td>
+										</tr>
+						}
+					}
+				
+					</tbody>
+		</table>
+				<label><b>Total: @if (ViewBag.Total != null)
+					{
+						@ViewBag.Total.ToString("C", new CultureInfo("en-US"))
+					}
+				</b></label>
+			@if(Model.ActiveInvoice != null)
+			{
+								<form method="post" asp-controller="vendors" asp-action="AddLineitem" asp-route-id="@Model.ActiveVendor.VendorId" enctype="application/x-www-form-urlencoded">
+							<div class="col-md-3 mb-3">
+									<label asp-for="ActiveLineItem.Description" >Description: </label>
+										<input type="text" asp-for="ActiveLineItem.Description" class="form-control" required >
+											<span asp-validation-for="ActiveLineItem.Description"></span>
+							 </div>
+						<div class="col-md-3 mb-3">
+							  <label asp-for="ActiveLineItem.Amount" >Amount: </label>
+										  <input asp-for="ActiveLineItem.Amount" class="form-control" required>
+										  <span asp-validation-for="ActiveLineItem.Amount"></span>
+								<input type="hidden" asp-for="ActiveLineItem.InvoiceId" value="@Model.ActiveInvoice.InvoiceId">
+						</div>
+						<div>
+							<button type="submit" class="btn btn-primary">Add Line Item</button>
+							</div>
+					</form>
+			}
+			
+	 </div> 
+</div>
+}

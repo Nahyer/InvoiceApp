@@ -1,0 +1,33 @@
+﻿@using InvoiceApp.Entities;
+@model List<Vendor>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var vendor in Model)
+        {
+            @if (vendor.IsDeleted == false)
+            {
+                <tr>
+                    <td>@vendor.Name</td>
+                    <td>@vendor.Address1</td>
+                    <td>
+                            <a asp-controller="Vendors" asp-action="GetVendorInvoice" asp-route-id="@vendor.VendorId">Invoices</a>
+                                <span class="mx-1">|</span>
+                        <a asp-controller="Vendors" asp-action="GetEditVendor" asp-route-id="@vendor.VendorId">Edit</a>
+                                <span class="mx-1">|</span>
+                            <a asp-controller="Vendors" asp-action="GetDeleteVendor" asp-route-id="@vendor.VendorId">Delete</a>
+                     </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
